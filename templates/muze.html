@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Müzeler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    .museum-list {
+        display: flex;
+        flex-direction: column; /* Yan yana değil, alt alta olacak */
+        align-items: center;    /* Ortalayalım */
+        gap: 30px;
+        margin-top: 60px;
+    }
+    .museum-item {
+        width: 90%; /* İsteğe bağlı daha geniş görünmesi için */
+        max-width: 500px;
+        text-align: center;
+    }
+    .museum-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .museum-item figcaption {
+        margin-top: 8px;
+        font-weight: bold;
+        color: #648ab1;
+    }
+    .museum-item p {
+        font-size: 16px;
+        color: #444;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <a href="/">Ana Sayfa</a> |
+        <a href="/muze">Müzeler</a> |
+        <a href="/hakkimizda">Hakkımızda</a>
+    </nav>
+
+    <h1>Müzeler</h1>
+    <p>Gelecek dönemde sitemizde online olarak gezebileceğiniz müzeler.</p>
+
+    <div class="museum-list">
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/istanbul-arkeoloji-muzesi.jpg') }}" alt="İstanbul Arkeoloji Müzesi">
+            <figcaption>İstanbul Arkeoloji Müzeleri</figcaption>
+            <p>İstanbul Arkeoloji Müzeleri üç ana birimden oluşan bir müzeler kompleksidir. Arkeoloji Müzesi, Eski Şark Eserleri Müzesi ve Çinili Köşk Müzesi. Türkiye’nin ilk müzesi olan İstanbul Arkeoloji Müzeleri’nin koleksiyonlarında imparatorluk topraklarından getirilen, çeşitli kültürlere ait bir milyona yakın eser bulunmaktadır.</p>
+        </figure>
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/beykoz-cam-billur-muzesi.jpg') }}" alt="Beykoz Cam Ve Billur Müzesi">
+            <figcaption>Beykoz Cam Ve Billur Müzesi</figcaption>
+            <p>Beykoz Cam ve Billur Müzesi, adını Osmanlı döneminde bu semtte kurulan ve devrinin en önemli cam fabrikası olan Beykoz Cam ve Billurât Fabrika-i Hümâyûnu’ndan almaktadır. Türk cam sanatının gelişim evrelerinin izlenebildiği Beykoz Cam ve Billur Müzesi’nin koleksiyonunda, Türk camlarının yanı sıra Avrupa’da Osmanlı sarayları için üretilmiş eşsiz eserler de bulunmaktadır. Cam sanatının seçkin örneklerinden 1.480 parça eserin sergilendiği müze, 12 tematik bölümden oluşmaktadır</p>
+        </figure>
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/cumhuriyet-muzesi.jpg') }}" alt="Cumhuriyet Müzesi">
+            <figcaption>Cumhuriyet Müzesi</figcaption>
+            <p>Türkiye'nin ilk üç Cumhurbaşkanı olan Mustafa Kemal Atatürk, Celal Bayar ve İsmet İnönü dönemlerine ait olaylar, hikayeler ve fotoğrafların yanı sıra, cumhurbaşkanlarının kişisel eşyaları ve o döneme ait Meclis kararları ile kanunlarına dair bilgiler sunulmaktadır. Ayrıca, eserler ve arşiv materyalleri de sergilenmektedir</p>
+        </figure>
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/resim-muzesi.jpg') }}" alt="Resim Müzesi">
+            <figcaption>Milli Saraylar Resim Müzesi</figcaption>
+            <p>Müzede 19. yüzyıl Osmanlı padişahlarının yaptırdığı, satın aldığı resimlerden oluşan bir koleksiyon tematik bir düzende sergilenir.[1] 30 salondan oluşan müzede, Millî Saraylar Daire Başkanlığı'na bağlı saraylarda bulunan resimlerin yanı sıra Topkapı Sarayı'ndan ödünç alınan resimler de yer almaktadır.[2] Müzede 533 eser yer almaktadır.</p>
+        </figure>
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/anadolu-medeniyetleri-muzesi.jpg') }}" alt="Anadolu Medeniyetleri Müzesi">
+            <figcaption>Anadolu Medeniyetleri Müzesi</figcaption>
+            <P>Anadolu Medeniyetleri Müzesi, Ankara'nın Altındağ ilçesinde bulunan bir tarih ve arkeoloji müzesidir. Müzede, Anadolu'da yaşamış olan uygarlıklardan geriye kalan arkeolojik eserler kronolojik olarak sergilenmektedir.</P>
+        </figure>
+        <figure class="museum-item">
+            <img src="{{ url_for('static', filename='img/aziz-nikolaos-anıt-muzesi.jpg') }}" alt="Aziz Nikolaos Müzesi">
+            <figcaption>Aziz (St.) Nikolaos Anıt Müzesi</figcaption>
+            <p>Noel Baba Kilisesi ya da resmi adıyla Aziz (St.) Nikolaos Anıt Müzesi, Demre'de bulunan, Noel Baba olduğuna inanılan Aziz Nikolaos'ın ölümü ile yapılan kilise. Noel Baba'nın ölümünden sonra bir süre burada yattığı daha sonra kemiklerinin İtalyan denizcilerce Bari'ye götürüldüğüne inanılır.</p>
+        </figure>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 60px;
+    color: #2eb2c9;
+}
+
+nav {
+    background-color: #2eb2c9; /* koyu mavi şerit */
+    padding: 30px 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff; /* beyaz yazılar */
+    margin: 30px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.container {
+    background-color: #deebee;
+    border-radius: 20px;
+    padding: 60px;
+    box-shadow: 0 0 10px rgba(248, 248, 248, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+p {
+    font-size: 22px;
+    color: #555;
+}
+
+figure {
+    margin-top: 15px;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    color: #555;
+}
+.figure-wrapper img {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Galeri stilleri */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.gallery figure {
+    width: 350px;
+    text-align: center;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(113, 108, 177, 0.1);
+}
+.container h1 {
+    color: #466896; /* İstediğin renk */
+    text-shadow: 1px 1px 3px rgba(197, 60, 60, 0.3); /* Hafif gölge efekti */
+    font-weight: 1000;
+}
+.search-container {
+    text-align: right;
+    margin: 15px 30px;
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    background-color: #2eb2c9;
+    color: rgb(249, 252, 250);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.eserler-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.eserler-container img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(216, 63, 63, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.eserler-container img:hover {
+    transform: scale(1.05);
+}
+.search-container button:hover {
+    background-color: #2eb2c9;
+}

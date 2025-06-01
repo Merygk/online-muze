@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Müze Sitesi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        nav {
+            background-color: #2eb2c9;
+            padding: 30px;
+        }
+        nav a {
+            margin-right: 35px;
+            text-decoration: none;
+            color: rgb(250, 250, 250);
+        }
+        .giris-btn {
+            float: right;
+            margin-top: -35px;
+            margin-right: 20px;
+            padding: 6px 12px;
+            background-color: #fdfffe;
+            color: #2eb2c9;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/muze">Müzeler</a>
+        <a href="/hakkimizda">Hakkımızda</a>
+
+        {% if session.get("kullanici") %}
+            <span style="float:right; margin-right:140px; font-weight:bold;">
+                Merhaba, {{ session["kullanici"] }}
+            </span>
+            <a href="/cikis" class="giris-btn">Çıkış Yap</a>
+        {% else %}
+            <a href="/giris" class="giris-btn">Giriş Yap</a>
+        {% endif %}
+    </nav>
+
+    <div class="container">
+        <h1>Online Müze Gezi Sitesi'ne Hoş Geldiniz!</h1>
+        <p>Burada birbirinden farklı müzeleri sanal olarak gezebilirsiniz.</p>
+
+        <a href="/muze/1">
+            <img src="{{ url_for('static', filename='img/ankara-muzesi.jpg') }}" alt="Ankara Resim ve Heykel Müzesi" width="400" style="margin-top: 30px; border-radius: 10px;">
+        </a>
+        <p>Ankara Resim ve Heykel Müzesi</p>
+
+        <a href="/muze/2">
+            <img src="{{ url_for('static', filename='img/modern-sanat-muzesi.jpg') }}" 
+                alt="Modern Sanat Müzesi" 
+                width="450" 
+                height="300"
+                style="margin-top: 80px; border-radius: 30px; display: block; margin-left: auto; margin-right: auto;">
+        </a>
+        <p>Modern Sanat Müzesi</p>
+    </div>
+</body>
+</html>

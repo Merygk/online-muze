@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Sanat Müzesi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .kalp {
+            cursor: pointer;
+            font-size: 24px;
+            color: grey;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+        }
+        .favori {
+            color: red;
+        }
+        .figure-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .figure-wrapper img {
+            width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .figure-wrapper img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasyon Menüsü -->
+    <nav>
+        <a href="/">Ana Sayfa</a> |
+        <a href="/muze">Müzeler</a> |
+        <a href="/hakkimizda">Hakkımızda</a>
+    </nav>
+
+    <h1>Modern Sanat Müzesi</h1>
+
+    <div class="eserler-container">
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-1.jpg') }}" alt="Modern Eser 1"  >
+            <span class="kalp" data-eser-id="10">&#9825;</span
+        </div>
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-2.jpg') }}" alt="Modern Eser 2"  >
+            <span class="kalp" data-eser-id="11">&#9825;</span>
+        </div>
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-3.jpg') }}" alt="Modern Eser 3" >
+            <span class="kalp" data-eser-id="12">&#9825;</span>
+        </div>
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-4.jpg') }}" alt="Modern Eser 4">
+            <span class="kalp" data-eser-id="13">&#9825;</span>
+        </div>
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-5.jpg') }}" alt="Modern Eser 5" >
+            <span class="kalp" data-eser-id="14">&#9825;</span>
+        </div>
+        <div class="figure-wrapper">
+            <img src="{{ url_for('static', filename='img/modern-6.jpg') }}" alt="Modern Eser 6" >
+            <span class="kalp" data-eser-id="15">&#9825;</span>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.kalp').forEach(kalp => {
+            kalp.addEventListener('click', () => {
+                const eserId = kalp.getAttribute('data-eser-id');
+
+                fetch('/favori/' + eserId, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.durum === 'eklendi') {
+                        kalp.classList.add('favori');
+                        kalp.innerHTML = '&#9829;';
+                    } else if(data.durum === 'çıkarıldı') {
+                        kalp.classList.remove('favori');
+                        kalp.innerHTML = '&#9825;';
+                    } else if(data.durum === 'hata') {
+                        alert('Lütfen giriş yapın.');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

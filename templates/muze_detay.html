@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ankara Resim ve Heykel Müzesi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Ana Sayfa</a>
+        <a href="/muze">Müzeler</a>
+        <a href="/hakkimizda">Hakkımızda</a>
+        <a href="/logout">Çıkış</a>
+    </nav>
+
+    <div class="container">
+        <h1>Ankara Resim ve Heykel Müzesi</h1>
+        <p>Müze koleksiyonundan bazı önemli eserler:</p>
+
+        <div class="gallery">
+            <figure>
+                <img src="{{ url_for('static', filename='img/osman-hamdi-portre.jpg') }}" alt="Osman Hamdi Bey - Portre">
+                <figcaption>Osman Hamdi Bey – Portresi (1842 - 1910)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="{{ url_for('static', filename='img/düşünen-kadın.jpg') }}" alt="Ömer Adil – Düşünen Kadın">
+                <figcaption>Ömer Adil – Düşünen Kadın (1868 - 1928)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="{{ url_for('static', filename='img/limanda-yelkenli.jpg') }}" alt="Şevket Dağ – Limanda Yelkenli">
+                <figcaption>Şevket Dağ – Limanda Yelkenli (1876 - 1944)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="{{ url_for('static', filename='img/boğaziçi-manzarası.jpg') }}" alt="Diyarbakırlı Tahsin – Boğaziçi Manzarası">
+                <figcaption>Diyarbakırlı Tahsin – Boğaziçi Manzarası (1874 - 1937)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="{{ url_for('static', filename='img/sehzade-portresi.jpg') }}" alt="Abdülmecid Efendi – Şehzade Portresi">
+                <figcaption>Abdülmecid Efendi – Şehzade Portresi (1868 - 1944)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="{{ url_for('static', filename='img/manzara.jpg') }}" alt="Şeker Ahmet Ali Paşa – Manzara">
+                <figcaption>Şeker Ahmet Ali Paşa – Manzara (1841 - 1907)</figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+</html>

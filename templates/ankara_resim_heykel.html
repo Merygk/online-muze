@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ankara Resim ve Heykel Müzesi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Ana Sayfa</a> |
+        <a href="/muze">Müzeler</a> |
+        <a href="/hakkimizda">Hakkımızda</a>
+    </nav>
+
+    <div class="container">
+        <h1>Ankara Resim ve Heykel Müzesi</h1>
+        <p>Bu sayfada müzeye ait eserleri görebilirsiniz.</p>
+
+        <div class="gallery">
+            <figure>
+                <img src="{{ url_for('static', filename='img/osman-hamdi-portre.jpg') }}" alt="Osman Hamdi Bey Portresi">
+                <figcaption>Osman Hamdi Bey – Portresi</figcaption>
+            </figure>
+            <figure>
+                <img src="{{ url_for('static', filename='img/dusunen-kadin.jpg') }}" alt="Düşünen Kadın">
+                <figcaption>Ömer Adil – Düşünen Kadın</figcaption>
+            </figure>
+            <!-- Diğer 4 eseri de aynı şekilde ekle -->
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ankara Resim ve Heykel Müzesi</title>
+    <style>
+        .kalp {
+            cursor: pointer;
+            font-size: 24px;
+            color: grey;
+        }
+        .favori {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ankara Resim ve Heykel Müzesi</h1>
+
+    <ul>
+        <!-- Örnek eserler, id ve isimleri -->
+        <li>
+            Portre 1 
+            <span class="kalp" data-eser-id="1">&#9825;</span> <!-- boş kalp -->
+        </li>
+        <li>
+            Portre 2 
+            <span class="kalp" data-eser-id="2">&#9825;</span>
+        </li>
+    </ul>
+
+    <script>
+        document.querySelectorAll('.kalp').forEach(kalp => {
+            kalp.addEventListener('click', () => {
+                const eserId = kalp.getAttribute('data-eser-id');
+
+                fetch('/favori/' + eserId, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.durum === 'eklendi') {
+                        kalp.classList.add('favori');
+                        kalp.innerHTML = '&#9829;'; // dolu kalp
+                    } else if(data.durum === 'çıkarıldı') {
+                        kalp.classList.remove('favori');
+                        kalp.innerHTML = '&#9825;'; // boş kalp
+                    } else if(data.durum === 'hata') {
+                        alert('Lütfen giriş yapın.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
